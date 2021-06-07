@@ -9,7 +9,7 @@ resource "aws_instance" "test_machine" {
 
 resource "aws_security_group" "test_security_group" {
   name   = "test_security_group_sg"
-  vpc_id = "vpc-1234" // Name TEST_VPC
+  vpc_id = "vpc-12345" // Name TEST_VPC
 
   egress {
     from_port = 0
