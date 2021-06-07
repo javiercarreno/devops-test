@@ -22,10 +22,12 @@ The idea of this tests is have a Jenkinsfile to check that the infrastructure is
 
 Take in mind:
 
-- The VPC id is: vpc-12345
-- The public subnets ids are: subnet-12345, subnet-1234, subnet-123
-- The private subnets ids are: subnet-54321, subnet-5432, subnet-543
-- The AMI id that has the application that we want to deploy is: ami-1234567890
+- Orientative IDs: (if you want to use an AWS free account to do it, just use those ids. These are set for orientative purposes)
+  - The VPC id is: vpc-12345
+  - The public subnets ids are: subnet-12345, subnet-1234, subnet-123
+  - The private subnets ids are: subnet-54321, subnet-5432, subnet-543
+  - The AMI id that has the application that we want to deploy is: ami-1234567890
+
 - There are three regions where the application needs to be deployed: us-east-1, us-west-2, and eu-west-1
 - There are no AWS credentials in Jenkins, the jenkins pipeline can be executed on the agents AG-USE1, AG-USW2 and AG-EUW1 which are already configured to have IAM role to execute everything on them.  
 - Both jenkinsfiles and terraform files should be "fixed" according to your experience/judgement, taking in mind:
