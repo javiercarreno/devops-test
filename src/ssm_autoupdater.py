@@ -2,7 +2,7 @@ import boto3
 import argparse
 
 
-def execute_puppet_on_instances(instances):
+def execute_autoupdater_on_instances(instances):
     return
 
 
@@ -16,4 +16,4 @@ if __name__ == '__main__':
     requiredNamed.add_argument('--autoscaling-group-name', help='Autoscaling Group Name', required=True)
     args = parser.parse_args()
     instances = retrieve_instances_from_autoscaling_group(args.autoscaling_group_name)
-    execute_puppet_on_instances(instances)
+    execute_autoupdater_on_instances(instances)

@@ -4,7 +4,7 @@ resource "aws_instance" "test_machine" {
   ami             = "i-1234567890" // Ami NAME: test_ami
   instance_type   = "t2.medium"
   security_groups = [aws_security_group.test_security_group.id]
-  user_data       = "#!/bin/bash\ncurl -u user:tUkArsHqQX4A7Hk7 https://file-to-download"
+  user_data       = "#!/bin/bash\ncurl -o /usr/local/bin/testapp-autoupdater -u user:tUkArsHqQX4A7Hk7 https://server.com/testapp-autoupdater "
 }
 
 resource "aws_security_group" "test_security_group" {

@@ -18,7 +18,7 @@ This project presents:
 - A terraform file with "somewhat" valid structure
 - A python file scaffold 
 
-The idea of this tests is have a Jenkinsfile to check that the infrastructure is up-to-date on AWS regarding the terraform file, and after the checks it should send an SSM command to the EC2 instances to execute a puppet agent update command.
+The idea of this tests is have a Jenkinsfile to check that the infrastructure is up-to-date on AWS regarding the terraform file, and after the checks it should send an SSM command to the EC2 instances to execute "/usr/local/bin/testapp-autoupdater" command.
 
 Take in mind:
 
@@ -35,9 +35,9 @@ Take in mind:
     - Feel free to improve as much as you want.
 - The application stack should have:
     - An elastic load balancer.
-    - An autoscaling group of minimum 3 instances and 6 instances.
+    - An autoscaling group of minimum 3 instances and maximum 6 instances.
     - The client told us that sometimes the application needs a lot of CPU and bandwith.
-    - The user data needs to download the file "https://file-to-download" to the /usr/local/bin folder
+    - The user data needs to download the file "https://server.com/testapp-autoupdater" to the /usr/local/bin folder
         - The credentials for the download are: user:tUkArsHqQX4A7Hk7
     - The port 80 and 443 open to incoming traffic.
 
@@ -45,6 +45,6 @@ Take in mind:
 
 Do this exercises if you have time to spare and you want to polish a lot more this exercise.
 
-1) Executing the jenkinsfile every time that we want to update the application using puppet is costly. The client asks if the puppet update using SSM could be done using a lambda function instead of inside the jenkinsfile. That way, going to the AWS console and executing the lambda function will let they to execute puppet update whenever they want
+1) The client says that executing the Jenkins Pipeline every time that we want to update the application is very costly. They ask if the execution of the autoupdater through SSM could be done using a lambda function instead of inside the jenkinsfile. That way, going to the AWS console and executing the lambda function will let they to execute the autoupdater whenever they want.
 
 2) The client asked for a deployment of an MySQL RDS because they want to set up a new backoffice with metrics inside the same AMI. The RDS should not be accessible from internet, but accessible from the EC2 machines. Keep in mind that the application needs to be reachable through port 80 and 443 only.
